@@ -5,18 +5,20 @@ LABEL maintainer="André Teles"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
-  && apt-get install -y gnupg tzdata \
+  && apt-get install -y gnupg tzdata software-properties-common \
   && echo "UTC" > /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata
 
+RUN add-apt-repository ppa:ondrej/php
+
 RUN apt-get update \
   && apt-get install -y curl zip unzip git supervisor sqlite3 \
-  nginx php7.2-fpm php7.2-cli \
-  php7.2-pgsql php7.2-sqlite3 php7.2-gd \
-  php7.2-curl php7.2-memcached \
-  php7.2-imap php7.2-mysql php7.2-mbstring \
-  php7.2-xml php7.2-zip php7.2-bcmath php7.2-soap \
-  php7.2-intl php7.2-readline php7.2-xdebug \
+  nginx php7.4-fpm php7.4-cli \
+  php7.4-pgsql php7.4-sqlite3 php7.4-gd \
+  php7.4-curl php7.4-memcached \
+  php7.4-imap php7.4-mysql php7.4-mbstring \
+  php7.4-xml php7.4-zip php7.4-bcmath php7.4-soap \
+  php7.4-intl php7.4-readline php7.4-xdebug \
   php-msgpack php-igbinary \
   && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
   && mkdir /run/php \
@@ -29,9 +31,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 ADD default /etc/nginx/sites-available/default
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD php-fpm.conf /etc/php/7.2/fpm/php-fpm.conf
+ADD php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
 ADD start-container.sh /usr/bin/start-container
-COPY xdebug.ini /etc/php/7.2/mods-available/xdebug.ini
+COPY xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
 COPY start-container.sh /usr/local/bin/start-container.sh
 RUN chmod +x /usr/local/bin/start-container.sh
 
