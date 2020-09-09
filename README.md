@@ -10,7 +10,7 @@ platform you use. You should just clone this repository and build amazing thing.
 - php latest (7.4.9)
 - composer
 
-## Using this projeto
+## Using this project
 
 This project provide a executable develop.sh, it provide the following commands to help you:
 
