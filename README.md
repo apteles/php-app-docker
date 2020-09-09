@@ -46,7 +46,7 @@ Contributing:
 
 Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting a Pull Request to the project.
 
-## Licença
+## Licence
 
 ![LICENSE](https://img.shields.io/badge/license-MIT-%23F8952D)
 
