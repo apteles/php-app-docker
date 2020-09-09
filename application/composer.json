@@ -1,0 +1,21 @@
+{
+    "name": "apteles/php-app-docker",
+    "description": "environment to create application php using docker",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andre Teles",
+            "email": "andre.telestp@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.3"
+    },
+    "scripts": {
+        "server":"php -S 0.0.0.0:8080 public/index.php"
+    },
+    "config": {
+        "process-timeout":0
+      }
+}
