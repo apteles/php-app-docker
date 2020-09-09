@@ -1,4 +1,4 @@
-# 🚀 PHP APP Docker (BACKEND)
+# 🚀 PHP APP Docker
 
 Build applications using docker with structure pre defined and run in any platform
 (windows/linux/macOS). This project will help you to launch fast applications not matter
