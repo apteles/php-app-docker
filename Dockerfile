@@ -61,6 +61,7 @@ FROM base as dev
 ENV PHP_ENV=development
 RUN composer config --list
 RUN composer install && composer clearcache
-RUN sed -i "s/xdebug\.remote_host\=.*/xdebug\.remote_host\=${XDEBUG_HOST}/g" /etc/php/7.4/mods-available/xdebug.ini
+# The line bellow should be fixed. It does not replace do content in .env correctly
+#RUN sed -i "s/xdebug\.remote_host\=.*/xdebug\.remote_host\=${XDEBUG_HOST}/g" /etc/php/7.4/mods-available/xdebug.ini
 USER php
 CMD ["composer","server"]
